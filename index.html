@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pearson Versant™ 4 Skills Essential Test (V4SET) - Assessment Portal</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons for Pearson-like crisp UI iconography -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pearson: {
+              navy: '#003049',
+              blue: '#005A70',
+              teal: '#007A87',
+              cyan: '#00A3AD',
+              lightBlue: '#E1F5F7',
+              grayBg: '#F4F7F8',
+              slate: '#1E293B',
+              border: '#CFDCE2',
+              coral: '#D9531E',
+              green: '#107C41'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Segoe UI', '-apple-system', 'BlinkMacSystemFont', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom sound wave pulse animation */
+    @keyframes soundwave {
+      0%, 100% { height: 6px; }
+      50% { height: 32px; }
+    }
+    .wave-bar {
+      animation: soundwave 1.2s ease-in-out infinite;
+    }
+    .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .wave-bar:nth-child(5) { animation-delay: 0.6s; }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+
+    /* Print styles for score report */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #score-report-card, #score-report-card * {
+        visibility: visible;
+      }
+      #score-report-card {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        box-shadow: none;
+        border: none;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-pearson-grayBg text-slate-800 antialiased min-h-screen flex flex-col font-sans select-none">
+
+  <!-- ================= TOP PEARSON BRAND BAR ================= -->
+  <header class="bg-white border-b border-pearson-border sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="flex items-center justify-center w-9 h-9 rounded bg-pearson-blue text-white font-bold text-lg tracking-wider">
+          P
+        </div>
+        <div>
+          <span class="text-xs font-bold tracking-widest text-pearson-teal uppercase block leading-none">Pearson</span>
+          <span class="text-sm font-semibold text-slate-900 leading-tight">Versant™ 4 Skills Essential Test</span>
+        </div>
+      </div>
+      
+      <!-- Session metadata -->
+      <div class="flex items-center space-x-4 sm:space-x-8 text-xs text-slate-600">
+        <div class="hidden sm:block">
+          <span class="text-slate-400 block text-[10px] uppercase">Candidate ID</span>
+          <span class="font-mono font-semibold text-slate-800" id="headerCandidateId">V4S-89214-GB</span>
+        </div>
+        <div class="hidden md:block">
+          <span class="text-slate-400 block text-[10px] uppercase">Session Token</span>
+          <span class="font-mono font-semibold text-slate-800">EXP-VER-2026-X</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="font-medium text-slate-700 hidden sm:inline" id="headerStatusText">Secure Exam Mode</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 flex flex-col justify-center">
+
+    <!-- ================= SCREEN 1: SYSTEM CHECK & INSTRUCTIONS ================= -->
+    <section id="screenCheck" class="space-y-6">
+      <!-- Welcome Hero -->
+      <div class="bg-white rounded-xl border border-pearson-border shadow-sm p-6 sm:p-8">
+        <div class="flex items-start justify-between flex-wrap gap-4 border-b border-slate-100 pb-5">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 mb-2 border border-emerald-200">
+              <i class="ph ph-shield-check text-sm"></i> Official Examination Environment
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Welcome to your Versant™ 4 Skills Assessment</h1>
+            <p class="text-slate-600 text-sm mt-1 max-w-2xl">
+              This automated test evaluates spoken English fluency, listening comprehension, sentence construction, vocabulary, dictation accuracy, and passage writing.
+            </p>
+          </div>
+          <div class="bg-pearson-lightBlue/60 text-pearson-blue border border-pearson-blue/20 rounded-lg p-3 text-center min-w-[130px]">
+            <span class="text-xs uppercase font-bold tracking-wide">Test Length</span>
+            <div class="text-xl font-bold text-slate-900">~15–20 Mins</div>
+            <span class="text-[11px] text-slate-600 font-medium">6 Test Sections</span>
+          </div>
+        </div>
+
+        <!-- Hardware & Audio Setup Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+          
+          <!-- Audio Playback Test -->
+          <div class="p-5 rounded-lg border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2.5 text-pearson-blue font-semibold text-sm mb-2">
+                <i class="ph ph-speaker-high text-lg"></i>
+                <span>1. Headphone / Audio Speaker Test</span>
+              </div>
+              <p class="text-xs text-slate-600 mb-4">
+                Verify that you can clearly hear prompts and the test audio chime. Wear headphones for optimal performance.
+              </p>
+            </div>
+            <div>
+              <button id="btnTestSound" type="button" class="w-full py-2.5 px-4 rounded-md bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-center gap-2 transition active:scale-[0.99] shadow-xs">
+                <i class="ph ph-play-circle text-base text-pearson-teal"></i>
+                <span>Play Test Sound & Sample Voice</span>
+              </button>
+              <div id="soundTestFeedback" class="text-[11px] text-emerald-600 font-medium mt-2 text-center h-4"></div>
+            </div>
+          </div>
+
+          <!-- Microphone Check & Level Meter -->
+          <div class="p-5 rounded-lg border border-slate-200 bg-slate-50/50 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2.5 text-pearson-blue font-semibold text-sm mb-2">
+                <i class="ph ph-microphone text-lg"></i>
+                <span>2. Microphone Sensitivity Check</span>
+              </div>
+              <p class="text-xs text-slate-600 mb-3">
+                Click allow when prompted by your browser. Speak naturally into your microphone to verify audio signal.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <!-- Visual Meter -->
+              <div class="flex items-center gap-3">
+                <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden p-0.5">
+                  <div id="micMeterBar" class="bg-pearson-teal h-full rounded-full transition-all duration-75 w-0"></div>
+                </div>
+                <span id="micStatusTag" class="text-[11px] font-mono font-medium text-slate-500 whitespace-nowrap">Inactive</span>
+              </div>
+
+              <button id="btnEnableMic" type="button" class="w-full py-2.5 px-4 rounded-md bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-center gap-2 transition shadow-xs">
+                <i class="ph ph-microphone-stage text-base text-pearson-teal"></i>
+                <span>Enable & Test Microphone</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Candidate Registration & Identification -->
+        <div class="border-t border-slate-200 pt-5">
+          <h3 class="text-sm font-semibold text-slate-900 mb-3 flex items-center gap-2">
+            <i class="ph ph-user-circle text-base text-pearson-teal"></i>
+            Candidate Profile Verification
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-slate-600 mb-1">Full Legal Name</label>
+              <input type="text" id="candidateNameInput" value="Alex Morgan" class="w-full px-3 py-2 text-sm rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-pearson-teal focus:border-transparent bg-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-600 mb-1">Candidate Testing ID</label>
+              <input type="text" id="candidateIdInput" value="V4S-89214-GB" class="w-full px-3 py-2 text-sm rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-pearson-teal focus:border-transparent bg-white font-mono">
+            </div>
+          </div>
+        </div>
+
+        <!-- Exam Regulations Checkboxes -->
+        <div class="bg-amber-50/60 border border-amber-200/80 rounded-lg p-4 my-6 text-xs text-amber-900 space-y-2">
+          <div class="font-semibold text-amber-950 flex items-center gap-1.5 text-sm">
+            <i class="ph ph-warning-circle text-base text-amber-600"></i> Testing Guidelines & Environment Rules
+          </div>
+          <p>• Once you begin, the test progresses automatically with strict timers. Do not close or refresh this browser tab.</p>
+          <p>• When listening to prompts, speak only after you hear the <strong>tone beep</strong>.</p>
+          <p>• Speak clearly with normal conversational loudness, natural pace, and steady sentence rhythm.</p>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button id="btnStartExam" type="button" class="px-8 py-3 rounded-lg bg-pearson-blue hover:bg-pearson-navy text-white font-semibold text-sm transition shadow-md flex items-center gap-2">
+            <span>Begin Assessment Now</span>
+            <i class="ph ph-arrow-right text-base font-bold"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= SCREEN 2: ACTIVE TEST RUNNER ================= -->
+    <section id="screenTest" class="hidden space-y-4">
+      
+      <!-- Top Test Status / Progress Card -->
+      <div class="bg-white rounded-xl border border-pearson-border shadow-xs p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <div class="w-10 h-10 rounded-lg bg-pearson-lightBlue flex items-center justify-center text-pearson-blue font-bold text-base" id="partBadgeIcon">
+            A
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase tracking-wider font-bold text-pearson-teal" id="partBadgeName">Part A: Repeat</span>
+              <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono font-medium" id="questionCounter">Item 1 of 4</span>
+            </div>
+            <div class="text-sm font-semibold text-slate-800" id="partSubSkill">Speaking • Pronunciation & Fluency</div>
+          </div>
+        </div>
+
+        <!-- Section Progress Indicator -->
+        <div class="flex items-center gap-6 w-full sm:w-auto justify-between sm:justify-end">
+          <div class="w-32 sm:w-48 bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+            <div id="overallProgressBar" class="bg-pearson-teal h-full transition-all duration-300 w-0"></div>
+          </div>
+
+          <!-- Section Item Timer (When applicable) -->
+          <div id="timerContainer" class="flex items-center gap-1.5 font-mono text-sm font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200 min-w-[76px] justify-center">
+            <i class="ph ph-timer text-pearson-teal text-base"></i>
+            <span id="timerDisplay">--:--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test Center Interactive Area -->
+      <div class="bg-white rounded-xl border border-pearson-border shadow-sm p-6 sm:p-10 min-h-[420px] flex flex-col justify-between relative overflow-hidden">
+        
+        <!-- Live System Audio / State Banner -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-2">
+            <span id="promptStatusIndicator" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+              <span class="w-2 h-2 rounded-full bg-slate-400"></span> Ready
+            </span>
+          </div>
+          <div class="text-xs text-slate-500 font-medium" id="modeNotice">Automated Evaluation Engine Active</div>
+        </div>
+
+        <!-- DYNAMIC CONTENT AREA (Populated per Part A-F) -->
+        <div id="taskInteractionArea" class="py-6 flex-1 flex flex-col justify-center items-center text-center">
+          <!-- Dynamically Injected -->
+        </div>
+
+        <!-- Live Audio Waveform / Speech Capture Visualizer -->
+        <div id="recordingWaveContainer" class="hidden flex-col items-center justify-center py-2 space-y-2">
+          <div class="flex items-center gap-1.5 h-10">
+            <div class="w-1.5 bg-emerald-500 rounded-full wave-bar"></div>
+            <div class="w-1.5 bg-emerald-500 rounded-full wave-bar"></div>
+            <div class="w-1.5 bg-emerald-500 rounded-full wave-bar"></div>
+            <div class="w-1.5 bg-emerald-500 rounded-full wave-bar"></div>
+            <div class="w-1.5 bg-emerald-500 rounded-full wave-bar"></div>
+          </div>
+          <div class="text-xs font-medium text-emerald-700 flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span> Recording candidate speech response...
+          </div>
+        </div>
+
+        <!-- Bottom Controls / Manual Next (For Written tasks or when prompt concludes) -->
+        <div class="border-t border-slate-100 pt-4 flex items-center justify-between">
+          <div class="text-xs text-slate-500 italic" id="interactionHint">
+            Listen carefully. Audio will play once.
+          </div>
+          <button id="btnManualNext" type="button" class="hidden px-5 py-2 rounded-lg bg-pearson-blue hover:bg-pearson-navy text-white text-xs font-semibold transition flex items-center gap-2">
+            <span>Next Item</span>
+            <i class="ph ph-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 3: OFFICIAL VERSANT SCORE REPORT ================= -->
+    <section id="screenReport" class="hidden space-y-6">
+      
+      <div id="score-report-card" class="bg-white rounded-xl border border-pearson-border shadow-md overflow-hidden">
+        
+        <!-- Scorecard Official Header -->
+        <div class="bg-pearson-navy text-white p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b-4 border-pearson-teal">
+          <div>
+            <div class="flex items-center gap-2 text-xs uppercase tracking-widest text-pearson-cyan font-bold mb-1">
+              <i class="ph ph-certificate text-base"></i> Official Automated Assessment Report
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Pearson Versant™ 4 Skills Essential Test</h2>
+            <div class="text-xs text-slate-300 mt-1 flex flex-wrap gap-4">
+              <span>Candidate: <strong class="text-white" id="repCandidateName">Alex Morgan</strong></span>
+              <span>Test ID: <strong class="text-white" id="repCandidateId">V4S-89214-GB</strong></span>
+              <span>Date: <strong class="text-white" id="repDate">October 24, 2026</strong></span>
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-xs border border-white/20 rounded-xl p-4 text-center min-w-[140px]">
+            <span class="text-[11px] uppercase tracking-wider text-slate-200 block font-semibold">Overall Versant</span>
+            <div class="text-4xl font-extrabold text-white my-0.5 tracking-tight" id="repOverallScore">--</div>
+            <span class="text-[11px] text-pearson-cyan font-semibold block" id="repCefrGrade">CEFR B2 • GSE 65</span>
+          </div>
+        </div>
+
+        <div class="p-6 sm:p-8 space-y-8">
+          
+          <!-- Sub-Skill Competency Bars -->
+          <div>
+            <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <i class="ph ph-chart-bar text-pearson-teal text-lg"></i>
+              Core Skills Breakdown (20 – 80 Scale)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              
+              <!-- Speaking -->
+              <div class="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-2">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="font-semibold text-slate-800 flex items-center gap-2">
+                    <i class="ph ph-microphone text-pearson-blue"></i> Speaking
+                  </span>
+                  <span class="font-bold text-base text-pearson-blue font-mono" id="scoreSpeaking">-- / 80</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                  <div id="barSpeaking" class="bg-pearson-blue h-full rounded-full transition-all duration-700 w-0"></div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed" id="descSpeaking">
+                  Demonstrates fluent sentence delivery, proper stress, and pronunciation mastery across conversational business tasks.
+                </p>
+              </div>
+
+              <!-- Listening -->
+              <div class="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-2">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="font-semibold text-slate-800 flex items-center gap-2">
+                    <i class="ph ph-headphones text-pearson-teal"></i> Listening
+                  </span>
+                  <span class="font-bold text-base text-pearson-teal font-mono" id="scoreListening">-- / 80</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                  <div id="barListening" class="bg-pearson-teal h-full rounded-full transition-all duration-700 w-0"></div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed" id="descListening">
+                  Accurately comprehends workplace dialogues, identifying key operational details and explicit spoken information.
+                </p>
+              </div>
+
+              <!-- Reading -->
+              <div class="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-2">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="font-semibold text-slate-800 flex items-center gap-2">
+                    <i class="ph ph-book-open-text text-pearson-navy"></i> Reading
+                  </span>
+                  <span class="font-bold text-base text-pearson-navy font-mono" id="scoreReading">-- / 80</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                  <div id="barReading" class="bg-pearson-navy h-full rounded-full transition-all duration-700 w-0"></div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed" id="descReading">
+                  Demonstrates strong command of vocabulary collocations, syntactic structures, and workplace context inferences.
+                </p>
+              </div>
+
+              <!-- Writing -->
+              <div class="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-2">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="font-semibold text-slate-800 flex items-center gap-2">
+                    <i class="ph ph-note-pencil text-pearson-coral"></i> Writing
+                  </span>
+                  <span class="font-bold text-base text-pearson-coral font-mono" id="scoreWriting">-- / 80</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                  <div id="barWriting" class="bg-pearson-coral h-full rounded-full transition-all duration-700 w-0"></div>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed" id="descWriting">
+                  Accurately transcribes spoken speech and synthesizes business passages with correct spelling and syntax.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- GSE & CEFR Alignment Chart -->
+          <div class="bg-slate-50 border border-slate-200 rounded-lg p-5">
+            <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Global Scale of English (GSE) & CEFR Alignment</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+              <div class="p-2.5 bg-white rounded border border-slate-200">
+                <span class="text-slate-400 block text-[10px]">CEFR LEVEL</span>
+                <span class="font-bold text-slate-900 text-sm" id="badgeCefr">B2</span>
+              </div>
+              <div class="p-2.5 bg-white rounded border border-slate-200">
+                <span class="text-slate-400 block text-[10px]">GSE SCORE</span>
+                <span class="font-bold text-slate-900 text-sm" id="badgeGse">68 / 90</span>
+              </div>
+              <div class="p-2.5 bg-white rounded border border-slate-200">
+                <span class="text-slate-400 block text-[10px]">COMPLETION</span>
+                <span class="font-bold text-emerald-600 text-sm">100% Items</span>
+              </div>
+              <div class="p-2.5 bg-white rounded border border-slate-200">
+                <span class="text-slate-400 block text-[10px]">VERIFICATION</span>
+                <span class="font-bold text-pearson-teal text-sm">Authenticated</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item by Item Candidate Audit Log -->
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-3 flex items-center justify-between">
+              <span>Section Response Audit Log & Alignment</span>
+              <span class="text-xs text-slate-500 font-normal">Automated speech & text recognition transcripts</span>
+            </h3>
+            <div class="max-h-72 overflow-y-auto border border-slate-200 rounded-lg divide-y divide-slate-100 text-xs">
+              <div id="auditLogEntries" class="divide-y divide-slate-100">
+                <!-- Dynamically generated logs -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Card Footer Actions -->
+        <div class="bg-slate-50 border-t border-slate-200 p-4 sm:p-6 flex flex-wrap items-center justify-between gap-3 no-print">
+          <div class="text-xs text-slate-500">
+            Automated Versant scoring engine results are cryptographically recorded.
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="window.print()" class="px-4 py-2 rounded-md bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center gap-1.5 transition">
+              <i class="ph ph-printer text-sm"></i> Print Scorecard
+            </button>
+            <button id="btnRetakeExam" class="px-5 py-2 rounded-md bg-pearson-blue hover:bg-pearson-navy text-white font-semibold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <i class="ph ph-arrow-counter-clockwise text-sm"></i> Take Another Test Session
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto border-t border-pearson-border bg-white text-slate-500 py-4 text-xs no-print">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div>
+        &copy; 2026 Pearson Education, Inc. or its affiliate(s). Versant™ is a registered trademark of Pearson.
+      </div>
+      <div class="flex items-center gap-4 text-slate-600">
+        <span>Security Verified</span>
+        <span>Patented Automated Scoring</span>
+        <span>Global Standard</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SOUND CHIME & SPEECH ENGINE ================= -->
+  <script>
+    /* -------------------------------------------------------------
+       AUDIO BEEP & CHIME SYNTHESIS (Web Audio API)
+       Authentic Pearson Versant 'Listen' / 'Speak' alert chime
+    ------------------------------------------------------------- */
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new AudioContextClass();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Play standard Versant tone (gentle notification before speaking)
+    function playVersantBeep(frequency = 880, duration = 0.35, callback) {
+      try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(frequency, ctx.currentTime);
+        
+        // Smooth envelope
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.25, ctx.currentTime + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + duration);
+
+        setTimeout(() => {
+          if (callback) callback();
+        }, duration * 1000);
+      } catch (e) {
+        console.warn("Audio Context beep error:", e);
+        if (callback) callback();
+      }
+    }
+
+    /* -------------------------------------------------------------
+       TEXT-TO-SPEECH (Web Speech Synthesis)
+    ------------------------------------------------------------- */
+    function speakPromptText(text, onComplete) {
+      if (!('speechSynthesis' in window)) {
+        // Fallback simulation if browser lacks TTS
+        setTimeout(() => { if (onComplete) onComplete(); }, 2500);
+        return;
+      }
+
+      window.speechSynthesis.cancel(); // Stop any pending
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.95; // Clear natural business rate
+      utterance.pitch = 1.0;
+      utterance.lang = 'en-US';
+
+      // Pick high quality English voice if available
+      const voices = window.speechSynthesis.getVoices();
+      const preferredVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Daniel')));
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+
+      utterance.onend = () => {
+        if (onComplete) onComplete();
+      };
+
+      utterance.onerror = (err) => {
+        console.warn("TTS Error:", err);
+        if (onComplete) onComplete();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    /* -------------------------------------------------------------
+       SPEECH RECOGNITION (Web Speech API)
+    ------------------------------------------------------------- */
+    const SpeechRecognitionClass = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+    let recognitionInstance = null;
+    let isRecognizing = false;
+
+    function initSpeechRecognition(onResultCallback, onEndCallback) {
+      if (!SpeechRecognitionClass) {
+        return null;
+      }
+      const rec = new SpeechRecognitionClass();
+      rec.continuous = false;
+      rec.interimResults = true;
+      rec.lang = 'en-US';
+
+      rec.onresult = (event) => {
+        let transcript = '';
+        for (let i = 0; i < event.results.length; i++) {
+          transcript += event.results[i][0].transcript;
+        }
+        if (onResultCallback) onResultCallback(transcript);
+      };
+
+      rec.onerror = (event) => {
+        console.warn("Speech recognition notice:", event.error);
+      };
+
+      rec.onend = () => {
+        isRecognizing = false;
+        if (onEndCallback) onEndCallback();
+      };
+
+      return rec;
+    }
+
+    /* -------------------------------------------------------------
+       TEST ITEM BANK (Standard Pearson V4SET Model)
+    ------------------------------------------------------------- */
+    const TEST_SECTIONS = [
+      {
+        partId: 'A',
+        name: 'Part A: Repeat',
+        subskill: 'Speaking • Pronunciation & Fluency',
+        instruction: 'You will hear a sentence spoken aloud. Repeat the sentence exactly as you hear it when you hear the tone.',
+        type: 'repeat',
+        items: [
+          { id: 1, target: "Please confirm your arrival time before noon." },
+          { id: 2, target: "The presentation will begin shortly in room three." },
+          { id: 3, target: "All visitors must register at the reception desk." },
+          { id: 4, target: "Our team exceeded the quarterly performance target." }
+        ]
+      },
+      {
+        partId: 'B',
+        name: 'Part B: Sentence Builds',
+        subskill: 'Speaking • Sentence Mastery & Syntax',
+        instruction: 'You will hear three or four groups of words in random order. Rearrange them to speak a grammatically correct sentence.',
+        type: 'builds',
+        items: [
+          {
+            id: 5,
+            chunks: ["to the branch manager", "the email", "forwarded directly"],
+            spokenPrompt: "to the branch manager ... the email ... was forwarded directly",
+            target: "The email was forwarded directly to the branch manager."
+          },
+          {
+            id: 6,
+            chunks: ["the new software", "by tomorrow", "will install", "the IT team"],
+            spokenPrompt: "the new software ... by tomorrow ... will install ... the IT team",
+            target: "The IT team will install the new software by tomorrow."
+          },
+          {
+            id: 7,
+            chunks: ["to reduce expenses", "agreed", "both departments"],
+            spokenPrompt: "to reduce expenses ... agreed ... both departments",
+            target: "Both departments agreed to reduce expenses."
+          }
+        ]
+      },
+      {
+        partId: 'C',
+        name: 'Part C: Conversations',
+        subskill: 'Listening • Comprehension & Short Answer',
+        instruction: 'You will hear a brief workplace dialogue between two colleagues followed by a question. Give a short, direct answer in one or a few words.',
+        type: 'conversation',
+        items: [
+          {
+            id: 8,
+            dialogue: [
+              { speaker: "Speaker 1", text: "David, did you submit our project invoice to accounting?" },
+              { speaker: "Speaker 2", text: "Yes, I emailed it to Accounting first thing this morning." },
+              { speaker: "Question", text: "Where did David send the invoice?" }
+            ],
+            targetAnswers: ["accounting", "to accounting", "accounting department"]
+          },
+          {
+            id: 9,
+            dialogue: [
+              { speaker: "Speaker 1", text: "Shall we take the hotel shuttle or order a taxi?" },
+              { speaker: "Speaker 2", text: "The shuttle is already full, so let's call a taxi." },
+              { speaker: "Question", text: "How will they travel?" }
+            ],
+            targetAnswers: ["taxi", "by taxi", "a taxi"]
+          },
+          {
+            id: 10,
+            dialogue: [
+              { speaker: "Speaker 1", text: "The printer on the fourth floor ran out of toner again." },
+              { speaker: "Speaker 2", text: "There is a fresh replacement cartridge inside the supply cabinet." },
+              { speaker: "Question", text: "What needs to be replaced?" }
+            ],
+            targetAnswers: ["toner", "the toner", "cartridge", "toner cartridge"]
+          }
+        ]
+      },
+      {
+        partId: 'D',
+        name: 'Part D: Sentence Completion',
+        subskill: 'Reading & Vocabulary • 25s per item',
+        instruction: 'Read each sentence and select the single word or phrase that best completes the sentence grammatically and logically.',
+        type: 'completion',
+        durationSec: 25,
+        items: [
+          {
+            id: 11,
+            sentence: "Employees are encouraged to wear formal attire _______ they are meeting with corporate clients.",
+            options: ["during", "whenever", "despite", "throughout"],
+            correctIndex: 1
+          },
+          {
+            id: 12,
+            sentence: "The newly acquired machinery is both faster and significantly more energy-_______ than previous models.",
+            options: ["efficient", "efficiency", "efficiently", "efficience"],
+            correctIndex: 0
+          },
+          {
+            id: 13,
+            sentence: "Neither of the two candidates who applied _______ the required technical certification.",
+            options: ["have", "has", "having", "are having"],
+            correctIndex: 1
+          },
+          {
+            id: 14,
+            sentence: "All financial records must be archived in _______ with governmental compliance guidelines.",
+            options: ["accordance", "intention", "relation", "purpose"],
+            correctIndex: 0
+          }
+        ]
+      },
+      {
+        partId: 'E',
+        name: 'Part E: Dictation',
+        subskill: 'Listening & Writing • 25s per item',
+        instruction: 'You will hear a sentence spoken only once. Type the sentence exactly as you hear it. Check spelling, capitalization, and punctuation.',
+        type: 'dictation',
+        durationSec: 25,
+        items: [
+          {
+            id: 15,
+            spokenPrompt: "Please silence all electronic devices during the presentation.",
+            target: "Please silence all electronic devices during the presentation."
+          },
+          {
+            id: 16,
+            spokenPrompt: "The sales manager will review the figures this afternoon.",
+            target: "The sales manager will review the figures this afternoon."
+          },
+          {
+            id: 17,
+            spokenPrompt: "The warehouse will be closed temporarily for routine inventory counting.",
+            target: "The warehouse will be closed temporarily for routine inventory counting."
+          }
+        ]
+      },
+      {
+        partId: 'F',
+        name: 'Part F: Passage Reconstruction',
+        subskill: 'Reading Comprehension & Writing Synthesis',
+        instruction: 'You will have 30 seconds to read the passage. Then it will disappear, and you will have 90 seconds to rewrite the passage with all key points.',
+        type: 'reconstruction',
+        items: [
+          {
+            id: 18,
+            readDuration: 30,
+            writeDuration: 90,
+            passage: "Marcus was scheduled to fly to Berlin on Monday to conduct an annual audit of the regional office. However, severe winter weather grounded all domestic and international flights. Recognizing the urgency of the review, Marcus coordinated with the local IT team to set up a secure video conference. Working virtually, the team successfully completed the inspection without delays.",
+            keyTerms: ["marcus", "berlin", "audit", "winter weather", "flights", "video conference", "virtually", "inspection", "completed"]
+          }
+        ]
+      }
+    ];
+
+    /* -------------------------------------------------------------
+       TEST STATE MANAGEMENT
+    ------------------------------------------------------------- */
+    const testState = {
+      candidateName: "Alex Morgan",
+      candidateId: "V4S-89214-GB",
+      currentSectionIndex: 0,
+      currentItemIndex: 0,
+      itemTimer: null,
+      timeLeft: 0,
+      responses: [], // Stores { itemId, sectionId, type, candidateText, target, score }
+      isAudioPlaying: false
+    };
+
+    /* -------------------------------------------------------------
+       SIMILARITY / SCORING HELPER FUNCTIONS
+    ------------------------------------------------------------- */
+    function cleanStr(s) {
+      return (s || '').toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+    }
+
+    // Levenshtein distance for string closeness
+    function levenshteinDistance(a, b) {
+      const an = a ? a.length : 0;
+      const bn = b ? b.length : 0;
+      if (an === 0) return bn;
+      if (bn === 0) return an;
+      const matrix = Array.from({ length: bn + 1 }, () => Array(an + 1).fill(0));
+      for (let i = 0; i <= an; i++) matrix[0][i] = i;
+      for (let j = 0; j <= bn; j++) matrix[j][0] = j;
+      for (let j = 1; j <= bn; j++) {
+        for (let i = 1; i <= an; i++) {
+          if (b[j - 1] === a[i - 1]) {
+            matrix[j][i] = matrix[j - 1][i - 1];
+          } else {
+            matrix[j][i] = Math.min(
+              matrix[j - 1][i - 1] + 1,
+              matrix[j][i - 1] + 1,
+              matrix[j - 1][i] + 1
+            );
+          }
+        }
+      }
+      return matrix[bn][an];
+    }
+
+    function calculateTextSimilarity(str1, str2) {
+      const s1 = cleanStr(str1);
+      const s2 = cleanStr(str2);
+      if (!s1 && !s2) return 1;
+      if (!s1 || !s2) return 0;
+      const dist = levenshteinDistance(s1, s2);
+      const maxLen = Math.max(s1.length, s2.length);
+      return Math.max(0, 1 - dist / maxLen);
+    }
+
+    /* -------------------------------------------------------------
+       MICROPHONE HARDWARE CHECK IN SCREEN 1
+    ------------------------------------------------------------- */
+    let micStream = null;
+    let micAudioCtx = null;
+    let micAnalyser = null;
+    let micAnimationId = null;
+
+    const btnEnableMic = document.getElementById('btnEnableMic');
+    const micMeterBar = document.getElementById('micMeterBar');
+    const micStatusTag = document.getElementById('micStatusTag');
+    const btnTestSound = document.getElementById('btnTestSound');
+    const soundTestFeedback = document.getElementById('soundTestFeedback');
+
+    btnTestSound.addEventListener('click', () => {
+      soundTestFeedback.innerText = "Playing chime & audio voice sample...";
+      playVersantBeep(700, 0.25, () => {
+        speakPromptText("Audio playback is working properly. Welcome to the assessment.", () => {
+          soundTestFeedback.innerText = "✓ Audio playback verified successfully.";
+        });
+      });
+    });
+
+    btnEnableMic.addEventListener('click', async () => {
+      try {
+        micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        micAudioCtx = new AudioContextClass();
+        const source = micAudioCtx.createMediaStreamSource(micStream);
+        micAnalyser = micAudioCtx.createAnalyser();
+        micAnalyser.fftSize = 256;
+        source.connect(micAnalyser);
+
+        micStatusTag.innerText = "Connected";
+        micStatusTag.className = "text-[11px] font-mono font-medium text-emerald-600 whitespace-nowrap";
+        btnEnableMic.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-300');
+        btnEnableMic.innerHTML = `<i class="ph ph-check-circle text-emerald-600 text-base"></i> Microphone Connected & Active`;
+
+        const dataArray = new Uint8Array(micAnalyser.frequencyBinCount);
+        function updateMeter() {
+          micAnalyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          for (let i = 0; i < dataArray.length; i++) {
+            sum += dataArray[i];
+          }
+          let avg = sum / dataArray.length;
+          let percent = Math.min(100, Math.round((avg / 70) * 100));
+          micMeterBar.style.width = percent + '%';
+          micAnimationId = requestAnimationFrame(updateMeter);
+        }
+        updateMeter();
+      } catch (err) {
+        console.warn("Microphone access denied or error:", err);
+        micStatusTag.innerText = "Permit Needed";
+        micStatusTag.className = "text-[11px] font-mono font-medium text-amber-600 whitespace-nowrap";
+        btnEnableMic.innerHTML = `<i class="ph ph-warning-circle text-amber-600 text-base"></i> Mic Access Denied (Manual Fallback Allowed)`;
+      }
+    });
+
+    /* -------------------------------------------------------------
+       TRANSITION TO TEST RUNNER
+    ------------------------------------------------------------- */
+    const screenCheck = document.getElementById('screenCheck');
+    const screenTest = document.getElementById('screenTest');
+    const screenReport = document.getElementById('screenReport');
+    const btnStartExam = document.getElementById('btnStartExam');
+
+    btnStartExam.addEventListener('click', () => {
+      const name = document.getElementById('candidateNameInput').value.trim();
+      const cid = document.getElementById('candidateIdInput').value.trim();
+      if (name) testState.candidateName = name;
+      if (cid) testState.candidateId = cid;
+
+      document.getElementById('headerCandidateId').innerText = testState.candidateId;
+      document.getElementById('repCandidateName').innerText = testState.candidateName;
+      document.getElementById('repCandidateId').innerText = testState.candidateId;
+      document.getElementById('repDate').innerText = new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+
+      // Cleanup initial mic meter loop if active
+      if (micAnimationId) cancelAnimationFrame(micAnimationId);
+
+      screenCheck.classList.add('hidden');
+      screenTest.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      startCurrentItem();
+    });
+
+    /* -------------------------------------------------------------
+       CORE ASSESSMENT RUNNER LOGIC
+    ------------------------------------------------------------- */
+    const partBadgeIcon = document.getElementById('partBadgeIcon');
+    const partBadgeName = document.getElementById('partBadgeName');
+    const partSubSkill = document.getElementById('partSubSkill');
+    const questionCounter = document.getElementById('questionCounter');
+    const overallProgressBar = document.getElementById('overallProgressBar');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const timerContainer = document.getElementById('timerContainer');
+    const promptStatusIndicator = document.getElementById('promptStatusIndicator');
+    const taskInteractionArea = document.getElementById('taskInteractionArea');
+    const recordingWaveContainer = document.getElementById('recordingWaveContainer');
+    const interactionHint = document.getElementById('interactionHint');
+    const btnManualNext = document.getElementById('btnManualNext');
+
+    function totalQuestionsInExam() {
+      return TEST_SECTIONS.reduce((acc, sec) => acc + sec.items.length, 0);
+    }
+
+    function completedQuestionsCount() {
+      let count = 0;
+      for (let s = 0; s < testState.currentSectionIndex; s++) {
+        count += TEST_SECTIONS[s].items.length;
+      }
+      count += testState.currentItemIndex;
+      return count;
+    }
+
+    function updateProgressIndicators() {
+      const total = totalQuestionsInExam();
+      const current = completedQuestionsCount();
+      const pct = Math.round((current / total) * 100);
+      overallProgressBar.style.width = pct + '%';
+    }
+
+    function clearTimer() {
+      if (testState.itemTimer) {
+        clearInterval(testState.itemTimer);
+        testState.itemTimer = null;
+      }
+    }
+
+    function setStatus(type, text) {
+      if (type === 'listen') {
+        promptStatusIndicator.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 text-sky-800";
+        promptStatusIndicator.innerHTML = `<span class="w-2 h-2 rounded-full bg-sky-600 animate-ping"></span> ${text}`;
+      } else if (type === 'speak') {
+        promptStatusIndicator.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800";
+        promptStatusIndicator.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> ${text}`;
+      } else if (type === 'type') {
+        promptStatusIndicator.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800";
+        promptStatusIndicator.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-600"></span> ${text}`;
+      } else {
+        promptStatusIndicator.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700";
+        promptStatusIndicator.innerHTML = `<span class="w-2 h-2 rounded-full bg-slate-400"></span> ${text}`;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       DISPATCH QUESTION HANDLERS
+    ------------------------------------------------------------- */
+    function startCurrentItem() {
+      clearTimer();
+      window.speechSynthesis.cancel();
+      btnManualNext.classList.add('hidden');
+      recordingWaveContainer.classList.add('hidden');
+
+      const sec = TEST_SECTIONS[testState.currentSectionIndex];
+      const item = sec.items[testState.currentItemIndex];
+
+      partBadgeIcon.innerText = sec.partId;
+      partBadgeName.innerText = sec.name;
+      partSubSkill.innerText = sec.subskill;
+      questionCounter.innerText = `Item ${testState.currentItemIndex + 1} of ${sec.items.length}`;
+      updateProgressIndicators();
+
+      switch (sec.type) {
+        case 'repeat':
+          runRepeatItem(item, sec);
+          break;
+        case 'builds':
+          runBuildsItem(item, sec);
+          break;
+        case 'conversation':
+          runConversationItem(item, sec);
+          break;
+        case 'completion':
+          runSentenceCompletionItem(item, sec);
+          break;
+        case 'dictation':
+          runDictationItem(item, sec);
+          break;
+        case 'reconstruction':
+          runReconstructionItem(item, sec);
+          break;
+      }
+    }
+
+    /* -------------------------------------------------------------
+       PART A: REPEAT
+    ------------------------------------------------------------- */
+    function runRepeatItem(item, sec) {
+      timerContainer.classList.add('opacity-40');
+      timerDisplay.innerText = "--:--";
+      setStatus('listen', 'Listen to Sentence');
+      interactionHint.innerText = "Listen carefully to the audio prompt.";
+
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-4 max-w-md w-full">
+          <div class="w-16 h-16 rounded-full bg-pearson-lightBlue text-pearson-blue flex items-center justify-center mx-auto text-2xl shadow-xs">
+            <i class="ph ph-ear"></i>
+          </div>
+          <div class="text-base font-semibold text-slate-800">Part A: Sentence ${testState.currentItemIndex + 1}</div>
+          <div class="text-xs text-slate-500">Listen carefully. You will repeat after the tone.</div>
+          <div id="spokenFallbackText" class="text-xs text-slate-400 italic"></div>
+        </div>
+      `;
+
+      // Speak prompt
+      speakPromptText(item.target, () => {
+        // Play beep and start candidate speaking phase
+        setStatus('speak', 'Speak Now');
+        interactionHint.innerText = "Speak the full sentence now.";
+        playVersantBeep(880, 0.4, () => {
+          captureSpokenAnswer(item.target, 6000, (capturedText) => {
+            recordResponse({
+              itemId: item.id,
+              sectionId: 'A',
+              type: 'Repeat',
+              prompt: item.target,
+              candidateText: capturedText,
+              target: item.target,
+              score: calculateTextSimilarity(capturedText, item.target)
+            });
+            advanceToNextItem();
+          });
+        });
+      });
+    }
+
+    /* -------------------------------------------------------------
+       PART B: SENTENCE BUILDS
+    ------------------------------------------------------------- */
+    function runBuildsItem(item, sec) {
+      timerContainer.classList.add('opacity-40');
+      timerDisplay.innerText = "--:--";
+      setStatus('listen', 'Listen to Word Groups');
+      interactionHint.innerText = "Listen to the word groups in scrambled order.";
+
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-5 max-w-lg w-full">
+          <div class="w-16 h-16 rounded-full bg-pearson-lightBlue text-pearson-blue flex items-center justify-center mx-auto text-2xl shadow-xs">
+            <i class="ph ph-shuffle"></i>
+          </div>
+          <div class="text-base font-semibold text-slate-800">Part B: Rearrange Spoken Groups</div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            ${item.chunks.map(chunk => `
+              <span class="px-3 py-1.5 rounded-md bg-slate-100 border border-slate-300 font-medium text-xs text-slate-700">
+                "${chunk}"
+              </span>
+            `).join('')}
+          </div>
+          <div class="text-xs text-slate-500">Speak the reorganized, grammatically complete sentence after the beep.</div>
+        </div>
+      `;
+
+      // Read scrambled chunks with pauses
+      speakPromptText(item.spokenPrompt, () => {
+        setStatus('speak', 'Speak Complete Sentence');
+        interactionHint.innerText = "Speak your organized sentence now.";
+        playVersantBeep(880, 0.4, () => {
+          captureSpokenAnswer(item.target, 7000, (capturedText) => {
+            recordResponse({
+              itemId: item.id,
+              sectionId: 'B',
+              type: 'Sentence Build',
+              prompt: item.spokenPrompt,
+              candidateText: capturedText,
+              target: item.target,
+              score: calculateTextSimilarity(capturedText, item.target)
+            });
+            advanceToNextItem();
+          });
+        });
+      });
+    }
+
+    /* -------------------------------------------------------------
+       PART C: CONVERSATIONS
+    ------------------------------------------------------------- */
+    function runConversationItem(item, sec) {
+      timerContainer.classList.add('opacity-40');
+      timerDisplay.innerText = "--:--";
+      setStatus('listen', 'Listen to Dialogue');
+      interactionHint.innerText = "Two speakers will speak followed by a brief question.";
+
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-4 max-w-md w-full">
+          <div class="w-16 h-16 rounded-full bg-pearson-lightBlue text-pearson-blue flex items-center justify-center mx-auto text-2xl shadow-xs">
+            <i class="ph ph-chat-centered-text"></i>
+          </div>
+          <div class="text-base font-semibold text-slate-800">Part C: Short Workplace Conversation</div>
+          <div class="text-xs text-slate-500">Listen closely to the two speakers, then answer the question in a few words.</div>
+        </div>
+      `;
+
+      // Construct sequential speech string
+      const fullAudioString = `${item.dialogue[0].text} ... ${item.dialogue[1].text} ... Question: ${item.dialogue[2].text}`;
+      
+      speakPromptText(fullAudioString, () => {
+        setStatus('speak', 'Answer Question');
+        interactionHint.innerText = "Provide a direct 1-3 word answer after the tone.";
+        playVersantBeep(880, 0.4, () => {
+          captureSpokenAnswer(item.targetAnswers[0], 5000, (capturedText) => {
+            // Check best match among target synonyms
+            let maxScore = 0;
+            item.targetAnswers.forEach(ans => {
+              const sim = calculateTextSimilarity(capturedText, ans);
+              if (sim > maxScore) maxScore = sim;
+            });
+
+            recordResponse({
+              itemId: item.id,
+              sectionId: 'C',
+              type: 'Conversation',
+              prompt: item.dialogue[2].text,
+              candidateText: capturedText,
+              target: item.targetAnswers.join(" / "),
+              score: maxScore
+            });
+            advanceToNextItem();
+          });
+        });
+      });
+    }
+
+    /* -------------------------------------------------------------
+       COMMON SPOKEN CAPTURE HANDLER (Recognition + Fallback)
+    ------------------------------------------------------------- */
+    function captureSpokenAnswer(benchmarkText, timeoutMs, onFinished) {
+      recordingWaveContainer.classList.remove('hidden');
+      let transcriptCaptured = "";
+
+      let recognition = null;
+      if (SpeechRecognitionClass) {
+        recognition = initSpeechRecognition(
+          (text) => { transcriptCaptured = text; },
+          () => {}
+        );
+        try {
+          recognition.start();
+          isRecognizing = true;
+        } catch (e) {
+          console.warn("Speech recognition already running or blocked:", e);
+        }
+      }
+
+      // Add a fallback manual input area in case mic is blocked in student's browser
+      const fallbackDiv = document.createElement('div');
+      fallbackDiv.className = "mt-4 w-full max-w-sm mx-auto";
+      fallbackDiv.innerHTML = `
+        <div class="text-[11px] text-slate-400 mb-1">Microphone backup input (if headset inactive):</div>
+        <input type="text" id="manualSpokenFallback" placeholder="Type what you spoke if mic is silent..." class="w-full px-2.5 py-1.5 text-xs border border-slate-300 rounded text-center">
+      `;
+      taskInteractionArea.appendChild(fallbackDiv);
+
+      setTimeout(() => {
+        if (recognition && isRecognizing) {
+          try { recognition.stop(); } catch (e) {}
+        }
+        recordingWaveContainer.classList.add('hidden');
+
+        // Check if candidate typed into fallback
+        const manualInput = document.getElementById('manualSpokenFallback');
+        if (manualInput && manualInput.value.trim().length > 0) {
+          transcriptCaptured = manualInput.value.trim();
+        }
+
+        // If candidate spoke nothing, provide neutral empty string
+        onFinished(transcriptCaptured || "(No speech detected)");
+      }, timeoutMs);
+    }
+
+    /* -------------------------------------------------------------
+       PART D: SENTENCE COMPLETION (Reading, 25s Timed)
+    ------------------------------------------------------------- */
+    function runSentenceCompletionItem(item, sec) {
+      timerContainer.classList.remove('opacity-40');
+      setStatus('type', 'Select Correct Option');
+      interactionHint.innerText = "25 seconds maximum. Select an option to advance.";
+
+      let selectedOption = null;
+
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-6 max-w-xl w-full text-left">
+          <div class="p-5 rounded-lg bg-slate-50 border border-slate-200 text-base sm:text-lg font-medium text-slate-800 leading-relaxed">
+            ${item.sentence.replace('_______', '<span class="inline-block px-3 py-0.5 mx-1 border-b-2 border-pearson-teal font-bold text-pearson-blue bg-white rounded shadow-xs" id="blankFill">_______</span>')}
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="optionsContainer">
+            ${item.options.map((opt, idx) => `
+              <button type="button" data-idx="${idx}" class="opt-choice p-3 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 hover:border-pearson-teal text-slate-700 font-medium text-sm flex items-center gap-3 transition text-left">
+                <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600 border border-slate-200">
+                  ${String.fromCharCode(65 + idx)}
+                </span>
+                <span>${opt}</span>
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      // Handle Option Click
+      const buttons = taskInteractionArea.querySelectorAll('.opt-choice');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = parseInt(btn.getAttribute('data-idx'));
+          selectedOption = idx;
+          buttons.forEach(b => b.classList.remove('ring-2', 'ring-pearson-teal', 'bg-pearson-lightBlue/30', 'border-pearson-teal'));
+          btn.classList.add('ring-2', 'ring-pearson-teal', 'bg-pearson-lightBlue/30', 'border-pearson-teal');
+          const blankFill = document.getElementById('blankFill');
+          if (blankFill) blankFill.innerText = item.options[idx];
+
+          // Auto proceed after short delay
+          setTimeout(() => {
+            commitCompletionAnswer(selectedOption);
+          }, 350);
+        });
+      });
+
+      // Strict 25s Countdown
+      testState.timeLeft = sec.durationSec || 25;
+      updateTimerDisplay();
+
+      testState.itemTimer = setInterval(() => {
+        testState.timeLeft--;
+        updateTimerDisplay();
+        if (testState.timeLeft <= 0) {
+          clearTimer();
+          commitCompletionAnswer(selectedOption);
+        }
+      }, 1000);
+
+      function commitCompletionAnswer(choiceIdx) {
+        clearTimer();
+        const candidatePick = choiceIdx !== null ? item.options[choiceIdx] : "(Unanswered)";
+        const correctText = item.options[item.correctIndex];
+        const isRight = choiceIdx === item.correctIndex;
+
+        recordResponse({
+          itemId: item.id,
+          sectionId: 'D',
+          type: 'Sentence Completion',
+          prompt: item.sentence,
+          candidateText: candidatePick,
+          target: correctText,
+          score: isRight ? 1.0 : 0.0
+        });
+
+        advanceToNextItem();
+      }
+    }
+
+    /* -------------------------------------------------------------
+       PART E: DICTATION (25s Timed)
+    ------------------------------------------------------------- */
+    function runDictationItem(item, sec) {
+      timerContainer.classList.remove('opacity-40');
+      setStatus('listen', 'Listen to Sentence');
+      interactionHint.innerText = "Listen once, then type the sentence with accurate spelling and punctuation.";
+
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-4 max-w-lg w-full">
+          <div class="w-16 h-16 rounded-full bg-pearson-lightBlue text-pearson-blue flex items-center justify-center mx-auto text-2xl shadow-xs">
+            <i class="ph ph-keyboard"></i>
+          </div>
+          <div class="text-base font-semibold text-slate-800">Part E: Dictation</div>
+          
+          <div class="w-full">
+            <input type="text" id="dictationInput" disabled placeholder="Wait until the sentence finishes playing..." autocomplete="off" class="w-full px-4 py-3 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-pearson-teal bg-slate-50 transition">
+            <div class="flex justify-between text-[11px] text-slate-400 mt-1.5">
+              <span>Press Enter or click Next when completed</span>
+              <span id="charCountSpan">0 chars</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      btnManualNext.classList.remove('hidden');
+
+      speakPromptText(item.spokenPrompt, () => {
+        setStatus('type', 'Type the Sentence');
+        interactionHint.innerText = "Type what you heard within 25 seconds.";
+        const input = document.getElementById('dictationInput');
+        if (input) {
+          input.disabled = false;
+          input.classList.remove('bg-slate-50');
+          input.classList.add('bg-white');
+          input.focus();
+
+          input.addEventListener('input', () => {
+            document.getElementById('charCountSpan').innerText = `${input.value.length} chars`;
+          });
+
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              commitDictation();
+            }
+          });
+        }
+
+        // Start 25-second timer
+        testState.timeLeft = sec.durationSec || 25;
+        updateTimerDisplay();
+
+        testState.itemTimer = setInterval(() => {
+          testState.timeLeft--;
+          updateTimerDisplay();
+          if (testState.timeLeft <= 0) {
+            commitDictation();
+          }
+        }, 1000);
+      });
+
+      btnManualNext.onclick = () => {
+        commitDictation();
+      };
+
+      function commitDictation() {
+        clearTimer();
+        btnManualNext.classList.add('hidden');
+        const input = document.getElementById('dictationInput');
+        const candidateTyped = input ? input.value.trim() : "";
+
+        recordResponse({
+          itemId: item.id,
+          sectionId: 'E',
+          type: 'Dictation',
+          prompt: item.spokenPrompt,
+          candidateText: candidateTyped || "(No text entered)",
+          target: item.target,
+          score: calculateTextSimilarity(candidateTyped, item.target)
+        });
+
+        advanceToNextItem();
+      }
+    }
+
+    /* -------------------------------------------------------------
+       PART F: PASSAGE RECONSTRUCTION (30s Read, 90s Write)
+    ------------------------------------------------------------- */
+    function runReconstructionItem(item, sec) {
+      timerContainer.classList.remove('opacity-40');
+      setStatus('listen', 'Phase 1: Read Carefully (30s)');
+      interactionHint.innerText = "Read the passage carefully. You have 30 seconds before it disappears.";
+
+      // Phase 1: 30-second reading
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-4 max-w-xl w-full text-left" id="reconstructPhaseContainer">
+          <div class="flex items-center justify-between">
+            <span class="text-xs uppercase tracking-wider font-bold text-pearson-blue">Reading Phase (30 Seconds)</span>
+            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-medium">Text will hide when timer expires</span>
+          </div>
+          <div class="p-6 rounded-lg bg-slate-50 border border-slate-200 text-sm sm:text-base font-normal text-slate-800 leading-relaxed">
+            ${item.passage}
+          </div>
+          <div class="text-xs text-slate-500 text-center">Focus on Marcus, Berlin, winter storms, and the IT video conference solution.</div>
+        </div>
+      `;
+
+      testState.timeLeft = item.readDuration || 30;
+      updateTimerDisplay();
+
+      testState.itemTimer = setInterval(() => {
+        testState.timeLeft--;
+        updateTimerDisplay();
+        if (testState.timeLeft <= 0) {
+          clearTimer();
+          startReconstructionWritingPhase(item);
+        }
+      }, 1000);
+    }
+
+    function startReconstructionWritingPhase(item) {
+      playVersantBeep(600, 0.3);
+      setStatus('type', 'Phase 2: Reconstruct Passage (90s)');
+      interactionHint.innerText = "Reconstruct the passage in your own words. 90 seconds remaining.";
+      btnManualNext.classList.remove('hidden');
+
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-4 max-w-xl w-full text-left">
+          <div class="flex items-center justify-between">
+            <span class="text-xs uppercase tracking-wider font-bold text-pearson-coral">Writing Phase (90 Seconds)</span>
+            <span class="text-xs text-slate-500" id="reconstructWordCount">0 words</span>
+          </div>
+
+          <textarea id="reconstructTextArea" placeholder="Type the reconstructed passage here. Include all key details, chronology, and facts..." class="w-full h-44 p-4 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-pearson-teal bg-white leading-relaxed resize-none"></textarea>
+
+          <div class="text-[11px] text-slate-400">
+            Write complete sentences with accurate spelling, grammar, and paragraph coherence.
+          </div>
+        </div>
+      `;
+
+      const textarea = document.getElementById('reconstructTextArea');
+      textarea.focus();
+      textarea.addEventListener('input', () => {
+        const words = textarea.value.trim().split(/\s+/).filter(Boolean).length;
+        document.getElementById('reconstructWordCount').innerText = `${words} words`;
+      });
+
+      testState.timeLeft = item.writeDuration || 90;
+      updateTimerDisplay();
+
+      testState.itemTimer = setInterval(() => {
+        testState.timeLeft--;
+        updateTimerDisplay();
+        if (testState.timeLeft <= 0) {
+          commitReconstruction();
+        }
+      }, 1000);
+
+      btnManualNext.onclick = () => {
+        commitReconstruction();
+      };
+
+      function commitReconstruction() {
+        clearTimer();
+        btnManualNext.classList.add('hidden');
+        const candidateText = textarea ? textarea.value.trim() : "";
+
+        // Keyword coverage + length + semantic evaluation
+        const lower = cleanStr(candidateText);
+        let matchedCount = 0;
+        item.keyTerms.forEach(term => {
+          if (lower.includes(term.toLowerCase())) matchedCount++;
+        });
+        const termScore = item.keyTerms.length > 0 ? (matchedCount / item.keyTerms.length) : 0.8;
+        const lengthScore = Math.min(1.0, candidateText.split(/\s+/).length / 35);
+        const finalItemScore = (termScore * 0.6) + (lengthScore * 0.4);
+
+        recordResponse({
+          itemId: item.id,
+          sectionId: 'F',
+          type: 'Passage Reconstruction',
+          prompt: "Passage about Marcus's trip to Berlin",
+          candidateText: candidateText || "(No passage written)",
+          target: item.passage,
+          score: finalItemScore
+        });
+
+        advanceToNextItem();
+      }
+    }
+
+    /* -------------------------------------------------------------
+       PROGRESSION & ADVANCEMENT
+    ------------------------------------------------------------- */
+    function recordResponse(respObj) {
+      testState.responses.push(respObj);
+    }
+
+    function advanceToNextItem() {
+      const currentSec = TEST_SECTIONS[testState.currentSectionIndex];
+      testState.currentItemIndex++;
+
+      if (testState.currentItemIndex < currentSec.items.length) {
+        // Next item within same part
+        startCurrentItem();
+      } else {
+        // Move to next section
+        testState.currentSectionIndex++;
+        testState.currentItemIndex = 0;
+
+        if (testState.currentSectionIndex < TEST_SECTIONS.length) {
+          // Announce next part with brief transition screen
+          showSectionTransition(TEST_SECTIONS[testState.currentSectionIndex]);
+        } else {
+          // Completed all sections! Generate Scorecard
+          finishExamAndDisplayReport();
+        }
+      }
+    }
+
+    function showSectionTransition(nextSection) {
+      clearTimer();
+      taskInteractionArea.innerHTML = `
+        <div class="space-y-4 max-w-md w-full animate-fade-in">
+          <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto text-2xl">
+            <i class="ph ph-check-circle"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">Section Complete</h3>
+          <p class="text-xs text-slate-600">Preparing next section: <strong>${nextSection.name}</strong></p>
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-md text-xs text-slate-700 italic">
+            ${nextSection.instruction}
+          </div>
+          <button id="btnProceedSection" class="px-6 py-2.5 rounded-md bg-pearson-blue hover:bg-pearson-navy text-white text-xs font-semibold shadow-xs">
+            Continue Immediately
+          </button>
+        </div>
+      `;
+
+      let countdown = 4;
+      const proceedBtn = document.getElementById('btnProceedSection');
+      const interval = setInterval(() => {
+        countdown--;
+        if (proceedBtn) proceedBtn.innerText = `Continue (${countdown}s)`;
+        if (countdown <= 0) {
+          clearInterval(interval);
+          startCurrentItem();
+        }
+      }, 1000);
+
+      if (proceedBtn) {
+        proceedBtn.addEventListener('click', () => {
+          clearInterval(interval);
+          startCurrentItem();
+        });
+      }
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(testState.timeLeft / 60);
+      const seconds = testState.timeLeft % 60;
+      timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      if (testState.timeLeft <= 5) {
+        timerDisplay.classList.add('text-red-600', 'animate-pulse');
+      } else {
+        timerDisplay.classList.remove('text-red-600', 'animate-pulse');
+      }
+    }
+
+    /* -------------------------------------------------------------
+       SCORING ENGINE & FINAL SCORECARD
+    ------------------------------------------------------------- */
+    function finishExamAndDisplayReport() {
+      screenTest.classList.add('hidden');
+      screenReport.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Calculate category weighted averages
+      const speakingItems = testState.responses.filter(r => r.sectionId === 'A' || r.sectionId === 'B');
+      const listeningItems = testState.responses.filter(r => r.sectionId === 'C' || r.sectionId === 'E');
+      const readingItems = testState.responses.filter(r => r.sectionId === 'D' || r.sectionId === 'F');
+      const writingItems = testState.responses.filter(r => r.sectionId === 'E' || r.sectionId === 'F');
+
+      function avgScore(items) {
+        if (!items || items.length === 0) return 0.75;
+        const sum = items.reduce((acc, i) => acc + (i.score || 0), 0);
+        return sum / items.length;
+      }
+
+      const spkRatio = avgScore(speakingItems);
+      const lisRatio = avgScore(listeningItems);
+      const rdgRatio = avgScore(readingItems);
+      const wrtRatio = avgScore(writingItems);
+
+      // Map [0.0 - 1.0] ratio to Versant 20 - 80 scale
+      // Formula: Score = 20 + Math.round(ratio * 60)
+      function toVersant(ratio) {
+        const clamped = Math.max(0, Math.min(1, ratio));
+        return Math.min(80, Math.max(20, Math.round(20 + clamped * 60)));
+      }
+
+      const spkScore = toVersant(spkRatio);
+      const lisScore = toVersant(lisRatio);
+      const rdgScore = toVersant(rdgRatio);
+      const wrtScore = toVersant(wrtRatio);
+
+      const overall = Math.round((spkScore + lisScore + rdgScore + wrtScore) / 4);
+
+      // Determine CEFR and GSE
+      let cefr = "B1";
+      let gse = 50;
+      if (overall >= 79) { cefr = "C2"; gse = 88; }
+      else if (overall >= 69) { cefr = "C1"; gse = 79; }
+      else if (overall >= 59) { cefr = "B2"; gse = 67; }
+      else if (overall >= 47) { cefr = "B1"; gse = 52; }
+      else if (overall >= 36) { cefr = "A2"; gse = 38; }
+      else { cefr = "A1"; gse = 24; }
+
+      // Populate Elements
+      document.getElementById('repOverallScore').innerText = overall;
+      document.getElementById('repCefrGrade').innerText = `CEFR ${cefr} • GSE ${gse}`;
+      document.getElementById('badgeCefr').innerText = cefr;
+      document.getElementById('badgeGse').innerText = `${gse} / 90`;
+
+      document.getElementById('scoreSpeaking').innerText = `${spkScore} / 80`;
+      document.getElementById('scoreListening').innerText = `${lisScore} / 80`;
+      document.getElementById('scoreReading').innerText = `${rdgScore} / 80`;
+      document.getElementById('scoreWriting').innerText = `${wrtScore} / 80`;
+
+      setTimeout(() => {
+        document.getElementById('barSpeaking').style.width = `${Math.round(((spkScore - 20) / 60) * 100)}%`;
+        document.getElementById('barListening').style.width = `${Math.round(((lisScore - 20) / 60) * 100)}%`;
+        document.getElementById('barReading').style.width = `${Math.round(((rdgScore - 20) / 60) * 100)}%`;
+        document.getElementById('barWriting').style.width = `${Math.round(((wrtScore - 20) / 60) * 100)}%`;
+      }, 200);
+
+      // Audit Log Entries
+      const auditContainer = document.getElementById('auditLogEntries');
+      auditContainer.innerHTML = '';
+
+      testState.responses.forEach((resp, idx) => {
+        const itemPct = Math.round((resp.score || 0) * 100);
+        const entry = document.createElement('div');
+        entry.className = "p-3 hover:bg-slate-50 transition";
+        entry.innerHTML = `
+          <div class="flex items-center justify-between font-semibold text-slate-800 mb-1">
+            <span class="flex items-center gap-1.5">
+              <span class="px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 font-mono text-[10px]">${resp.sectionId}</span>
+              <span>Item ${idx + 1}: ${resp.type}</span>
+            </span>
+            <span class="font-mono ${itemPct >= 70 ? 'text-emerald-600' : (itemPct >= 40 ? 'text-amber-600' : 'text-rose-600')}">
+              ${itemPct}% Accuracy
+            </span>
+          </div>
+          <div class="text-[11px] text-slate-500 mb-0.5"><strong>Target:</strong> "${resp.target || resp.prompt}"</div>
+          <div class="text-[11px] text-slate-700"><strong>Candidate response:</strong> "${resp.candidateText}"</div>
+        `;
+        auditContainer.appendChild(entry);
+      });
+    }
+
+    /* -------------------------------------------------------------
+       RETAKE ASSESSMENT BUTTON
+    ------------------------------------------------------------- */
+    document.getElementById('btnRetakeExam').addEventListener('click', () => {
+      testState.currentSectionIndex = 0;
+      testState.currentItemIndex = 0;
+      testState.responses = [];
+      clearTimer();
+      window.speechSynthesis.cancel();
+
+      screenReport.classList.add('hidden');
+      screenCheck.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+  </script>
+</body>
+</html>
